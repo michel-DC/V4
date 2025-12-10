@@ -189,9 +189,8 @@ export default function RepresentationSocietePage() {
               ref={(el) => {
                 contentBlocksRef.current[index] = el;
               }}
-              className={`flex ${
-                index % 2 === 0 ? "justify-start" : "justify-end"
-              }`}
+              className={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"
+                }`}
             >
               <div className="max-w-2xl">
                 <div className="relative p-8 md:p-10 bg-white/5 backdrop-blur-md rounded-xl border border-gray-700/50 shadow-2xl shadow-black/20">
@@ -259,7 +258,7 @@ export default function RepresentationSocietePage() {
 
       {/* Image en bas */}
       <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-20">
-        <div className="absolute bottom-10 left-0 w-1/2 max-w-lg">
+        <div className="absolute -bottom-24 left-0 w-1/2 max-w-lg">
           <div className="relative w-full aspect-square">
             <Image
               src="/images/president.png"
