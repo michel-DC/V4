@@ -134,7 +134,7 @@ export default function AvisInternautePage() {
           </div>
 
           <Link
-            href="/webdoc/section/critique-capitalisme"
+            href="/webdoc"
             className="group inline-flex items-center gap-3 px-6 py-3 border border-gray-700 rounded-full hover:border-white hover:bg-white/10 transition-all duration-300"
           >
             <span className="text-sm tracking-[0.2em] uppercase">
