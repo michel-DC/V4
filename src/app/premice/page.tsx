@@ -196,7 +196,7 @@ export default function IntroductionPage() {
             {/* Bulle de dialogue au-dessus */}
             <div
               ref={leftQuoteRef}
-              className="absolute -top-20 md:-top-24 lg:-top-28 left-[60%] transform -translate-x-1/2 w-64 md:w-72 lg:w-80 bg-[#037a76]/90 backdrop-blur-sm rounded-lg p-3 md:p-4 border border-[#037a76] shadow-xl"
+              className="speech-bubble absolute -top-20 md:-top-24 lg:-top-28 left-[60%] transform -translate-x-1/2 w-64 md:w-72 lg:w-80 bg-[#037a76]/90 backdrop-blur-sm rounded-lg p-3 md:p-4 border border-[#037a76] shadow-xl"
               style={{
                 opacity: 0,
               }}
@@ -226,7 +226,7 @@ export default function IntroductionPage() {
             {/* Bulle de dialogue au-dessus */}
             <div
               ref={rightQuoteRef}
-              className="absolute -top-20 md:-top-24 lg:-top-28 left-[40%] transform -translate-x-1/2 w-64 md:w-72 lg:w-80 bg-[#ff2f6e]/90 backdrop-blur-sm rounded-lg p-3 md:p-4 border border-[#ff2f6e] shadow-xl"
+              className="speech-bubble absolute -top-20 md:-top-24 lg:-top-28 left-[40%] transform -translate-x-1/2 w-64 md:w-72 lg:w-80 bg-[#ff2f6e]/90 backdrop-blur-sm rounded-lg p-3 md:p-4 border border-[#ff2f6e] shadow-xl"
               style={{
                 opacity: 0,
               }}
@@ -410,6 +410,52 @@ export default function IntroductionPage() {
 
         .overflow-y-auto::-webkit-scrollbar-thumb:hover {
           background: #666;
+        }
+
+        /* Bulles de citation style "Squid Game" (ne change pas la position absolute) */
+        .speech-bubble {
+          border-radius: 14px;
+          color: #fff;
+          overflow: hidden;
+          box-shadow: 0 12px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+          -webkit-backdrop-filter: blur(6px) saturate(120%);
+          backdrop-filter: blur(6px) saturate(120%);
+          border: 1px solid rgba(255,255,255,0.06);
+          text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+          font-weight: 300;
+        }
+
+        /* Accentue les dégradés déjà définis via les classes inline */
+        .speech-bubble .w-4.h-4 > div {
+          box-shadow: -1px 2px 6px rgba(0,0,0,0.45);
+          border-right: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .speech-bubble::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 6px, transparent 6px 12px);
+          mix-blend-mode: overlay;
+          pointer-events: none;
+          opacity: 0.6;
+        }
+
+        .speech-bubble:hover {
+          transform: translateY(-4px);
+          transition: transform 180ms ease, box-shadow 180ms ease;
+          box-shadow: 0 18px 48px rgba(2,6,23,0.75), inset 0 1px 0 rgba(255,255,255,0.04);
+        }
+
+        .speech-bubble p {
+          margin: 0;
+          font-size: 0.95rem;
+          line-height: 1.25rem;
+          letter-spacing: 0.01em;
+        }
+
+        @media (min-width: 768px) {
+          .speech-bubble p { font-size: 1rem; line-height: 1.4rem; }
         }
       `}</style>
     </main>
